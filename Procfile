@@ -1,0 +1,1 @@
+web: gunicorn bikes4Free.wsgi:application --log-file -
