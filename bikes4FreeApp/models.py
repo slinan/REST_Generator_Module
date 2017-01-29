@@ -10,21 +10,29 @@ import django
 # App
 
 class Ingredient(models.Model):
+    def __str__(self):
+        return self.name + ' - id: '+ str(self.id)
     price = models.FloatField()
     type = models.CharField(max_length=300)
     name = models.CharField(max_length=300, unique=True)
 
 class Dish(models.Model):
+    def __str__(self):
+        return self.name + ' - id: '+ str(self.id)
     price = models.FloatField()
     name = models.CharField(max_length=300)
     type = models.CharField(max_length=300)
     ingredient = models.ForeignKey(Ingredient)
 
 class Beverage(models.Model):
+    def __str__(self):
+        return self.type + ' - id: '+ str(self.id)
     price = models.FloatField()
     type = models.CharField(max_length=300)
 
 class Combo(models.Model):
+    def __str__(self):
+        return self.name + ' - id: '+ str(self.id)
     price = models.FloatField()
     name = models.CharField(max_length=300, unique=True)
     dish = models.ForeignKey(Dish)
